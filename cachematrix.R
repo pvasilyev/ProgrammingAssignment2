@@ -1,7 +1,10 @@
-## Put comments here that give an overall description of what your
-## functions do
+## Following functions can be used to create special wrapper over given matrix,
+## which is able to cache invertion of this matrix, a.k.a. solve(matrix).
+## So if the matrix is not changed - then the invertion computed only once and after that
+## returned only cached result.
+## When the data of the wrapper is changed - then cache is expired and invertion is re-computed.
 
-## Write a short comment describing this function
+## This function creates a caching-wrapper for a given matrix 'x'.
 
 makeCacheMatrix <- function(x = matrix()) {
   inverted <- NULL
@@ -18,7 +21,8 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 
-## Write a short comment describing this function
+## This function computes the invertion for the wrapper if is hasn't computed so far.
+## Otherwise it returns cached result for the 'x'.
 
 cacheSolve <- function(x, ...) {
         ## Return a matrix that is the inverse of 'x'
